@@ -15,3 +15,7 @@ Use this guide to [install docker on CentOS7](https://docs.docker.com/install/li
 
 ### Free Online Start Up Guide
 https://docker-curriculum.com/
+
+### Test, cut a branch from this git repository and check off the boxes as you complete chapters! Then push to git!
+[ ] Did you do it?
+
