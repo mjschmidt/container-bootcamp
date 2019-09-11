@@ -1,4 +1,8 @@
 # Learning the Linux Basics
+> Getting up and running and learning Kubernetes from an end user perspective
+
+<img src="images/Kubernetes-training-in-Hyderabad.jpeg" width="600" height="300" align="center" />
+
 
 ## Getting an VM
 Come talk to me about getting a vm for practice and use (:
