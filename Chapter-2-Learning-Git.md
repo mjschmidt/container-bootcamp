@@ -18,3 +18,6 @@ sudo yum install git -y
 
 ### Free Online Start Up Guide
 https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/
+
+### Test, cut a branch from this git repository and check off the boxes as you complete chapters! Then push to git!
+- [ ] Did you do it?
