@@ -10,11 +10,11 @@ Make sure you have a VM
 ### Try Git Online
 https://try.github.io/
 
-### Free Online Start Up Guide
-https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/
-
 ### Installing git
 ```
 # Install on CentOS7
 sudo yum install git -y
 ```
+
+### Free Online Start Up Guide
+https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/
