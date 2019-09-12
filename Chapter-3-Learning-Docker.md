@@ -1,6 +1,6 @@
 # Learning the Docker Basics
 
-<img src="images/Git-Logo-2Color.png" width="300" height="100" align="center" />
+<img src="images/1_uitUVFjILAHXSdG6JshpPg.png" width="400" height="100" align="center" />
 
 
 
