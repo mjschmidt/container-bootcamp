@@ -1,6 +1,6 @@
 # Learning the Kubernetes Basics
 
-<img src="images/kubernetes-logo.png" width="400" height="100" align="center" />
+<img src="images/kubernetes-logo.png" width="600" height="250" align="center" />
 
 ### History of Kubernetes
 https://en.wikipedia.org/wiki/Kubernetes
