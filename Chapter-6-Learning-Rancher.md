@@ -1,6 +1,6 @@
 # Learning the Rancher Basics
 
-<img src="images/rancher-logo-horiz-color.png" width="400" height="100" align="center" />
+<img src="images/rancher-logo-horiz-color.png" width="500" height="75" align="center" />
 
 ### Get two new VMs
 You'll need two to six new VMs for this exercise. If you haven't written basic bash scripts for installing docker on a few nodes, now is a great time to revisit some previous sections!
