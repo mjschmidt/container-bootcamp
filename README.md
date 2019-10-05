@@ -42,6 +42,13 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 yum install -y kubectl
+```
+And the following as non root user
+```
 sudo cp -R /root/.kube ~/ && sudo cp -R /root/.minikube ~/
 sudo chown -R $USER .kube .minikube /root/.minikube /root
+curl -o helm-v2.14.3.tar.gz -L https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
+tar -zxvf helm-v2.14.3.tar.gz
+sudo mv linux-amd64/helm /usr/bin/helm
+helm init --override spec.selector.matchLabels.'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl apply -f -
 ```
