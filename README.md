@@ -27,12 +27,18 @@ yum-config-manager     --add-repo     https://download.docker.com/linux/centos/d
 yum install docker-ce docker-ce-cli containerd.io
 yum install docker-ce docker-ce-cli containerd.io -y
 systemctl start docker
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-1.4.0.rpm  && sudo rpm -ivh minikube- 1.4.0.rpm
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-1.4.0.rpm  && sudo rpm -ivh minikube-1.4.0.rpm
 minikube start --vm-driver=none
 minikube config set vm-driver none
 yum install vim -y
 rm minikube-1.4.0.rpm
-cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+```
+vim this file
+```
+vim /etc/yum.repos.d/kubernetes.repo
+```
+Add this text into the file
+```
 [kubernetes]
 name=Kubernetes
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
@@ -41,6 +47,9 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
+```
+```
+#yum install kubectl
 yum install -y kubectl
 ```
 And the following as non root user
