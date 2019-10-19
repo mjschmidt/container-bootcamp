@@ -59,4 +59,8 @@ curl -o helm-v2.14.3.tar.gz -L https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.
 tar -zxvf helm-v2.14.3.tar.gz
 sudo mv linux-amd64/helm /usr/bin/helm
 helm init --override spec.selector.matchLabels.'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl apply -f -
+
+rm -rf helm-v2.14.3.tar.gz linux-amd64/
+
+
 ```
