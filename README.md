@@ -24,7 +24,7 @@ If for some reason you need a new minikube you can simply run the following scri
 yum install git -y
 yum install -y yum-utils   device-mapper-persistent-data   lvm2
 yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
-yum install docker-ce docker-ce-cli containerd.io
+yum install docker-ce docker-ce-cli containerd.io -y
 yum install docker-ce docker-ce-cli containerd.io -y
 systemctl start docker
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-1.4.0.rpm  && sudo rpm -ivh minikube-1.4.0.rpm
