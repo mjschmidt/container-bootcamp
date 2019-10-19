@@ -2,7 +2,11 @@
 
 <img src="images/1_uitUVFjILAHXSdG6JshpPg.png" width="400" height="100" align="center" />
 
-
+##CheatSheet
+```
+#List all docker images and tags on a machine
+sudo docker images | cut -c -63 | sed 's/ \{1,\}/:/g' | sed 's/.$//' | grep -v REPOSITORY
+```
 
 ### Try Docker Online
 https://www.katacoda.com/courses/docker
