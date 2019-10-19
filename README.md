@@ -62,5 +62,5 @@ helm init --override spec.selector.matchLabels.'name'='tiller',spec.selector.mat
 
 rm -rf helm-v2.14.3.tar.gz linux-amd64/
 sudo yum install -y socat
-
+helm version
 ```
