@@ -5,7 +5,7 @@
 ## CheatSheet
 ```
 #List all docker images and tags on a machine
-sudo docker images | cut -c -63 | sed 's/ \{1,\}/:/g' | sed 's/.$//' | grep -v REPOSITORY
+sudo docker images | cut -c -90 | sed 's/ \{1,\}/:/g' | sed 's/.$//' | grep -v REPOSITORY | sed 's/:<none>//'
 ```
 
 ### Try Docker Online
