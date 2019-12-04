@@ -107,6 +107,12 @@ helm version
 cd ~/
 sudo cp -R /root/.kube ~/ && sudo cp -R /root/.minikube ~/
 sudo chown -R $USER .kube .minikube /root/.minikube /root
-
-helm version
+```
+put this in the bottom of your /etc/rc.d/rc.local
+```
+#put this in the bottom of your /etc/rc.d/rc.local
+sudo vim /etc/rc.d/rc.local
+```
+```
+sudo /usr/bin/minikube start --vm-driver=none --kubernetes-version=1.16.2
 ```
