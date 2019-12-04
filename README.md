@@ -19,19 +19,25 @@ Kubernetes does not have a low learning curve. Kubernetes is a platform for buil
 - [ ] Chapter 10 - Putting it all together and Understanding where we are going
 
 ### QuickStart
-If for some reason you need a new minikube you can simply run the following script as root
+If for some reason you need a new minikube you can simply run the following script as root. Feel free to script this up better.
 ```
 yum install git -y
 yum install -y yum-utils   device-mapper-persistent-data   lvm2
 yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
 yum install docker-ce docker-ce-cli containerd.io -y
 yum install docker-ce docker-ce-cli containerd.io -y
+```
+then this
+```
 systemctl start docker
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-1.4.0.rpm  && sudo rpm -ivh minikube-1.4.0.rpm
+```
+then this
+```
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-1.5.2.rpm  && sudo rpm -ivh minikube-1.5.2.rpm
 minikube start --vm-driver=none
 minikube config set vm-driver none
 yum install vim -y
-rm minikube-1.4.0.rpm
+rm minikube-1.5.2.rpm
 ```
 vim this file
 ```
@@ -53,14 +59,36 @@ yum install -y kubectl
 ```
 And the following as non root user
 ```
+#install go
+curl -O https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
+tar -xvf go1.13.4.linux-amd64.tar.gz
+sudo chown -R root:root ./go
+sudo mv go /usr/local
+mkdir -p ~/go/src/hello && cd ~/go/src/
+```
+and this as non root
+```
+#install go building dependencies
+sudo yum install -y gcc
+sudo yum install -y dep
+```
+and this as non root
+```
+cd cd ~/go/src/
+curl -o helm-v3.0.0.tar.gz -L https://github.com/helm/helm/archive/v3.0.0.tar.gz
+tar -zvxf helm-v3.0.0.tar.gz
+rm -f helm-v3.0.0.tar.gz
+cd helm-3.0.0
+make
+sudo mv bin/helm /usr/bin/
+sudo yum install -y socat
+helm version
+```
+```
+#move minikube executables
+cd ~/
 sudo cp -R /root/.kube ~/ && sudo cp -R /root/.minikube ~/
 sudo chown -R $USER .kube .minikube /root/.minikube /root
-curl -o helm-v2.14.3.tar.gz -L https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
-tar -zxvf helm-v2.14.3.tar.gz
-sudo mv linux-amd64/helm /usr/bin/helm
-helm init --override spec.selector.matchLabels.'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl apply -f -
 
-rm -rf helm-v2.14.3.tar.gz linux-amd64/
-sudo yum install -y socat
 helm version
 ```
