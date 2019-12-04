@@ -20,15 +20,22 @@ Kubernetes does not have a low learning curve. Kubernetes is a platform for buil
 
 ### QuickStart
 If for some reason you need a new minikube you can simply run the following script as root. Feel free to script this up better.
+
+*In dev, try running `./container-quickstart.sh`*
+
 ```
 yum install git -y
 yum install -y yum-utils   device-mapper-persistent-data   lvm2
 yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
 yum install docker-ce docker-ce-cli containerd.io -y
+
+
 ```
 then this
 ```
 systemctl start docker
+
+
 ```
 then this
 ```
@@ -37,6 +44,8 @@ minikube start --vm-driver=none
 minikube config set vm-driver none
 yum install vim -y
 rm minikube-1.5.2.rpm
+
+
 ```
 vim this file
 ```
@@ -55,6 +64,8 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 ```
 #yum install kubectl
 yum install -y kubectl
+
+
 ```
 And the following as non root user
 ```
@@ -64,16 +75,22 @@ tar -xvf go1.13.4.linux-amd64.tar.gz
 sudo chown -R root:root ./go
 sudo mv go /usr/local
 mkdir -p ~/go/src/hello && cd ~/go/src/
+export PATH=$PATH:/usr/local/go/bin
+echo export PATH=$PATH:/usr/local/go/bin >> ~/.bashrc
+
+
+
 ```
 and this as non root
 ```
 #install go building dependencies
-sudo yum install -y gcc
-sudo yum install -y dep
+sudo yum install -y gcc socat  dep
+
+
 ```
 and this as non root
 ```
-cd cd ~/go/src/
+cd ~/go/src/
 curl -o helm-v3.0.0.tar.gz -L https://github.com/helm/helm/archive/v3.0.0.tar.gz
 tar -zvxf helm-v3.0.0.tar.gz
 rm -f helm-v3.0.0.tar.gz
@@ -82,6 +99,8 @@ make
 sudo mv bin/helm /usr/bin/
 sudo yum install -y socat
 helm version
+
+
 ```
 ```
 #move minikube executables
