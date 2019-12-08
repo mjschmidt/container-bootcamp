@@ -17,7 +17,7 @@ https://rancher.com/docs/rancher/v2.x/en/
 
 ### Upgrading Rancher
 You may use the following script to upgrade a single node rancher at anytime automatically. This script must be run on the machine that your user origonally setup rancher on.
-```
+```bash
 #/bin/bash
 
 # get the current version of rancher running on your host machine
