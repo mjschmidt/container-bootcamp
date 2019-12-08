@@ -20,6 +20,8 @@ You may use the following script to upgrade a single node rancher at anytime aut
 ```bash
 #/bin/bash
 
+#Step 1: this block just sets variables
+
 # get the current version of rancher running on your host machine
 oldContainerVersion=$(docker ps | grep -v CONTAINER | grep rancher/rancher | cut -c -42 | cut -c 37-)
 #get the latest stable rancher version from the github releases page
@@ -31,37 +33,35 @@ containerID=$(docker ps | grep rancher | cut -c -12)
 #set the date for the purposes of this script to be able to appropriately label everything and delete old backups
 date=$(date | sed 's/ /-/g' | sed 's/--/-/g' | sed 's/:/-/g' | awk '{print tolower($0)}')
 
+#Step 2: this block creates a volume snapshot of data from  old container to new
+
 #stop the container
 docker stop $containerName
-
 #create a moutable volume for your new container with the data of the stopped container
 docker create --volumes-from $containerName --name rancher-data-$date rancher/rancher:$oldContainerVersion
-
 #create a busybox container to retrieve said backup incase something goes wrong during upgrade
 docker run --volumes-from rancher-data-$date --name busybox-$date -v $PWD:/backup busybox tar zcvf /backup/rancher-backup-$oldContainerVersion-$date.tar.gz /var/lib/rancher
+
+#Step 3: then run your new container
 
 #run the new rancher container on only port 443 (https) with the old data being mounted in
 docker run -d --volumes-from rancher-data-$date --name rancher-$date   --restart=unless-stopped   -p 443:443     rancher/rancher:$newContainerVersion
 
+#Step 4: time for cleanup!
 
 echo
 echo done!
 echo these containers could be cleaned up now
 docker ps -a --format {{.Names}}  | grep -v $date
 docker ps -a --format {{.Names}}  | grep -v $date > tmp-file.txt
-
 #remove all the old contianers so you can save your disk space
 docker rm $(cat tmp-file.txt)
-
 #remove all unused images
 docker rmi $(docker images -q)
-
 #move the backup to home directory
 mv rancher-backup-$oldContainerVersion-$date.tar.gz ~/
-
 #delete all old backup files (comment this out if you want to keep your backups)
 rm -f ~/$(ls ~/ | grep 'rancher-backup' | grep -v $date)
-
 #remove all temp files
 rm -f *.txt *.tar.gz
 ```
