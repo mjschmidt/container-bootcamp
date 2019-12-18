@@ -6,8 +6,10 @@
 ```
 #List all docker images and tags on a machine
 docker images --format {{.Repository}} > name_docker_images.tmp && docker images --format {{.Tag}} > name_docker_tags.tmp
+sed -i 's/$/:/' name_docker_images.tmp
 paste name_docker_images.tmp name_docker_tags.tmp > imagelist.txt
 rm name_docker_images.tmp name_docker_tags.tmp
+sed -i 's/\t//g' imagelist.txt
 cat imagelist.txt
 
 #once you verify delete imagelist file
