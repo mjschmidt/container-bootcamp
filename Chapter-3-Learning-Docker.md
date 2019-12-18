@@ -5,7 +5,13 @@
 ## CheatSheet
 ```
 #List all docker images and tags on a machine
-sudo docker images | cut -c -90 | sed 's/ \{1,\}/:/g' | sed 's/.$//' | grep -v REPOSITORY | sed 's/:<none>//'
+docker images --format {{.Repository}} > name_docker_images.tmp && docker images --format {{.Tag}} > name_docker_tags.tmp
+paste name_docker_images.tmp name_docker_tags.tmp > imagelist.txt
+rm name_docker_images.tmp name_docker_tags.tmp
+cat imagelist.txt
+
+#once you verify delete imagelist file
+rm imagelist.txt
 ```
 
 ### Try Docker Online
