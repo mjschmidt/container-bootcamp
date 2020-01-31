@@ -21,7 +21,7 @@ Kubernetes does not have a low learning curve. Kubernetes is a platform for buil
 ### QuickStart
 If for some reason you need a new minikube you can simply run the following script as root. Feel free to script this up better.
 
-*In dev, try running `./container-quickstart.sh`*
+*In quickscripts, try running `./master.sh`. This will run all the commands found below.*
 
 ```
 yum install git -y
