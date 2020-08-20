@@ -70,8 +70,8 @@ yum install -y kubectl
 And the following as non root user
 ```
 #install go
-curl -O https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-tar -xvf go1.13.4.linux-amd64.tar.gz
+curl -O https://dl.google.com/go/go1.15.linux-amd64.tar.gz
+tar -xvf go1.15.linux-amd64.tar.gz
 sudo chown -R root:root ./go
 sudo mv go /usr/local
 mkdir -p ~/go/src/hello && cd ~/go/src/
