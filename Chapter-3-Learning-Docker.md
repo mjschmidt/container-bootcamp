@@ -3,6 +3,12 @@
 <img src="images/1_uitUVFjILAHXSdG6JshpPg.png" width="400" height="100" align="center" />
 
 ## CheatSheet
+
+```
+#Add your user without needing sudo
+sudo usermod -aG docker $USER
+```
+
 ```
 #List all docker images and tags on a machine
 docker images --format {{.Repository}} > name_docker_images.tmp && docker images --format {{.Tag}} > name_docker_tags.tmp
