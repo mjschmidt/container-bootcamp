@@ -17,7 +17,7 @@ Welcome to the Container Bootcamp! This bootcamp is designed to get you up and r
 
 - Basic knowledge of Linux/Unix commands
 - Familiarity with programming concepts
-- A computer with Docker and Kubernetes installed (installation guides will be provided)
+- A computer with Docker and Kubernetes installed (installation guidance will be provided)
 
 ---
 
