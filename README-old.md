@@ -4,7 +4,7 @@
 <img src="images/Kubernetes-training-in-Hyderabad.jpeg" width="600" height="300" align="center" />
 
 ## Purpose
-Kubernetes does not have a low learning curve. Kubernetes is a platform for building platform, but its far from the endgame. This repository aims to help teach the basics so that you can get up and running in about two and a half weeks.
+Kubernetes does not have a low learning curve. Kubernetes is a platform for building platform, but its far from the endgame. This repository aims to help teach the basics so that you can get up and running in about two and a half week
 
 ### The definition of done is as follows:
 - [ ] Chapter 1 - The basics of Linux
